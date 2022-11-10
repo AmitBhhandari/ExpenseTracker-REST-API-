@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } 
+body{
+    background-color: aqua;
+   
+}
+form{
+    text-align: center;
+    margin-top: 200px;
+    border: 2px solid black;
+    width: 50%;
+    margin-left: 25%;
+    border-radius: 25px round;
+}
+input{
+    color: #0F4C75;
+}
+input{
+    height: 30px;
+    margin: 2px;
+}
+.btn{
+    height: 40px;
+    width: 100px;
+    background-color: #00ADB5;
+}
+.btn:hover{
+    color:#EEEEEE ;
+    background-color: #0F4C75;
+}
+.editbtn{
+    background-color:#3282B8;
+}
+.deletebtn{
+    background-color:#F47174;
+}
+p{
+    margin-top: 50px;
+}
+ul{
+    margin-bottom: 40px;
+}
+
+.result{
+    
+    text-align: center;
+}
