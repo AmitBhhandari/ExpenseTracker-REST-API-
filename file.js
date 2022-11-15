@@ -1,8 +1,9 @@
 window.addEventListener("DOMContentLoaded", () => {
-    axios.get("https://crudcrud.com/api/ce49f490d75548c2add4c76159006bea/Data")
+    axios.get("https://crudcrud.com/api/a159394fbb80465db4308e4d09bcceb6/Data")
     .then((response)=>{
-        
-            addExpense(response.data) 
+        for (var i = 0; i < response.data.length; i++) {
+            addExpense(response.data[i])
+        }
         
     })
 })
@@ -20,7 +21,7 @@ function saveToLocalStorage(event){
         discription,
         category,
       }
-     axios.post("https://crudcrud.com/api/ce49f490d75548c2add4c76159006bea/Data",obj)
+     axios.post("https://crudcrud.com/api/a159394fbb80465db4308e4d09bcceb6/Data",obj)
      .then((response)=>{
        addExpense(response.data)
      }) 
@@ -40,16 +41,16 @@ function addExpense(expense){
     }
    
     const parentNode = document.getElementById('listOfExpense');
-    const childHTML =  `<li id=${expense._id}> ${expense.amount} - ${expense.discription} - ${expense.catagory}
+    const childHTML =  `<li id=${expense._id}> ${expense.amount} - ${expense.discription} - ${expense.category}
     <button class="editbtn" onCLick=editExpense('${expense.amount}','${expense.discription}','${expense.category}','${expense._id}')>Edit expense</button>
-    <button class="deletebtn" onCLick=deleteExpense('${expense._id}')>Delete expense</button>
+    <button  class="deletebtn" onCLick=deleteExpense('${expense._id}')>Delete expense</button>
     </li>`;
 
     parentNode.innerHTML =  parentNode.innerHTML + childHTML;
 }
 
 function deleteExpense(trackerId) {
-    axios.delete(`https://crudcrud.com/api/ce49f490d75548c2add4c76159006bea/Data/${trackerId}`)
+    axios.delete(`https://crudcrud.com/api/a159394fbb80465db4308e4d09bcceb6/Data/${trackerId}`)
         .then((response) => {
             removeExpense(trackerId)
         })
